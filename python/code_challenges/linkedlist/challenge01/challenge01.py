@@ -1,57 +1,65 @@
-# Write here the code challenge solution
 class Node:
-    def __init__(self,value):
-        self.value=value
-        self.next= None
+    '''we define the nodes in this class'''
 
-class linkedlist:
+    def __init__(self, nodeValue):
+        self.val = nodeValue
+        self.next = None
+
+
+class LinkedList:
+    '''we create the linked list methods here'''
+
     def __init__(self):
-        self.head=None
+        self.head = None
 
-    def add_to_list(self,node):
-        if self.head==None:
-            self.head=node
+    def append(self, node):
+        '''handle accept and append the nodes'''
+        if self.head is None:
+            self.head = node
         else:
-            current=self.head
+            current = self.head
             while current.next is not None:
                 current = current.next
             current.next = node
 
-    def delete_from_list(self,node):
-        current=self.head
-        if (current is not None):
-            if (current.value == node):
-                self.head = current.next
-
-                return
-        while(current is not None):
-            if current.value == node:
-                break
-            prev = current
-            current = current.next
-        if current==None:
-            print("Value not found")
-            return ("Value not found") 
-
-        prev.next = current.next
- 
-        current = None
-
-    def print_list(self):
+    def printAll(self):
+        '''This method prints the linked list values contained within a list.'''
+        elements = []
         if self.head is None:
-            print("list is empty")
+            return ("linked list is empty")
         else:
             current = self.head
             while current is not None:
-                print(current.value)
+                elements.append(current.val)
                 current = current.next
+            return elements
 
-var1 = linkedlist()
-var1.add_to_list('S')
-var1.add_to_list('H')
-var1.add_to_list('A')
-var1.add_to_list('D')
-var1.add_to_list('E')
-var1.add_to_list('N')
 
-var1.print_list()
+def deleteNode(node):
+    '''This function deletes nodes that only have access to the node, and it takes into account the fact that the node is not a tail node.'''
+
+    if not node:
+        return
+
+    node.val = node.next.val
+    node.next = node.next.next
+
+
+SLL = LinkedList()
+
+node1 = Node(9)
+SLL.append(node1)
+node2 = Node(6)
+SLL.append(node2)
+node3 = Node(2)
+SLL.append(node3)
+node4 = Node(7)
+SLL.append(node4)
+node5 = Node(3)
+SLL.append(node5)
+node6 = Node(1)
+SLL.append(node6)
+
+deleteNode(node3)
+
+print(SLL.printAll())
