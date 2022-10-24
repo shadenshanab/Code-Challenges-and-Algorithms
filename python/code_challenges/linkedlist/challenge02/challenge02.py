@@ -29,12 +29,9 @@ class LinkedList:
         when the first node reaches the end value—it iterates over the list.'''
         pointer = self.head
         mid_node = self.head
-        while (pointer):
-            if pointer.next != None:
-                pointer = pointer.next.next
-                mid_node = mid_node.next
-            else:
-                break
+        while (pointer.next != None):
+            pointer = pointer.next.next
+            mid_node = mid_node.next
         return mid_node.val
 
     def printAll(self):
