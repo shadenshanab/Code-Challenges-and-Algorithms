@@ -29,12 +29,9 @@ class LinkedList:
         when the first node reaches the end value—it iterates over the list.'''
         pointer = self.head
         mid_node = self.head
-        while (pointer):
-            if pointer.next != None:
-                pointer = pointer.next.next
-                mid_node = mid_node.next
-            else:
-                break
+        while (pointer.next != None):
+            pointer = pointer.next.next
+            mid_node = mid_node.next
         return mid_node.val
 
     def printAll(self):
@@ -59,6 +56,20 @@ def deleteNode(node):
     node.val = node.next.val
     node.next = node.next.next
 
+def deleteNthNode(self, node):
+        '''Given the head of a linked list, this function removes the nth node from the end of the list and return its head.'''
+        first_pointer = self.head
+        second_pointer = self.head
+        for i in range(node):
+            if second_pointer.next == None:
+                if i == node - 1:
+                    self.head = self.head.next
+                return self.head
+            second_pointer = second_pointer.next
+        while second_pointer.next != None:
+            second_pointer = second_pointer.next
+            first_pointer = first_pointer.next
+        first_pointer.next = first_pointer.next.next
 
 SLL = LinkedList()
 
@@ -74,9 +85,10 @@ node5 = Node(3)
 SLL.append(node5)
 node6 = Node(1)
 SLL.append(node6)
+print(SLL.printAll())
 
-#deleteNode(node3)
-
+deleteNode(node3)
+print(deleteNthNode(SLL, 8))
 print(SLL.printAll())
 
 print(SLL.middleNode())
