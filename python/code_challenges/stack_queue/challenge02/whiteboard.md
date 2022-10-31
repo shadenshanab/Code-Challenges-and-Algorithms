@@ -1,0 +1,1 @@
+![whiteboard](https://cdn.discordapp.com/attachments/821561273178521621/1036744777883979867/tp-whiteboard-1_2.jpg)
