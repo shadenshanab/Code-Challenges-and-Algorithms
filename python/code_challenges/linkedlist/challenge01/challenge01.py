@@ -60,6 +60,8 @@ SLL.append(node5)
 node6 = Node(1)
 SLL.append(node6)
 
+print(SLL.printAll())
+
 deleteNode(node3)
 
 print(SLL.printAll())
