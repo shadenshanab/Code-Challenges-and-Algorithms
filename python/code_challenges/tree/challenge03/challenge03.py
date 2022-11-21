@@ -10,6 +10,9 @@ class Tree:
         self.root = None
 
 def sortedArrayToBST(nums: list[int]):
+    """
+    this function takes a list of integers and converts it into a binary search tree using recursion 
+    """
     total_nums = len(nums)
     if not total_nums:
         return None
