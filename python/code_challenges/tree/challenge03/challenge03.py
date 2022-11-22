@@ -13,6 +13,7 @@ def sortedArrayToBST(nums: list[int]):
     """
     this function takes a list of integers and converts it into a binary search tree using recursion 
     """
+    nums.sort()
     total_nums = len(nums)
     if not total_nums:
         return None

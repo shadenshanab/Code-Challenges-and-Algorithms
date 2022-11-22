@@ -8,10 +8,10 @@ def test_tree1():
     expected = None
     assert actual == expected
 
-def test_tree2():
-    nums = [-2,-1,0,1,2]
+def test_tree2(): #unsorted
+    nums = [-2,-1,5,1,2]
     actual = sortedArrayToBST(nums).value
-    expected = 0
+    expected = 1
     assert actual == expected
 
 def test_tree3():
