@@ -25,7 +25,7 @@ def test_middle_node_even():
     llist.append(node5)
     llist.append(node6)
 
-    expected = 72
+    expected = node4
     actual = llist.middleNode()
     assert actual == expected
 
@@ -43,7 +43,7 @@ def test_middle_node_odd():
     llist.append(node4)
     llist.append(node5)
 
-    expected = 29
+    expected = node3
     actual = llist.middleNode()
     assert actual == expected
 
