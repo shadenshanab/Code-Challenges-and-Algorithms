@@ -1,1 +1,1 @@
-![whiteboard](https://cdn.discordapp.com/attachments/821561273178521621/1048263190078816336/image.png)
+![whiteboard](https://cdn.discordapp.com/attachments/821561273178521621/1048655004904468621/image.png)
