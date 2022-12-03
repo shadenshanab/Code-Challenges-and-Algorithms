@@ -1,19 +1,16 @@
 class Node:
-    '''we define the nodes in this class'''
-
-    def __init__(self, nodeValue):
-        self.val = nodeValue
-        self.next = None
-
+    '''This is a class to define nodes'''
+    def __init__(self, x):
+         self.val = x
+         self.next = None
 
 class LinkedList:
-    '''we create the linked list methods here'''
-
+    '''This is class to create linked list methods'''
     def __init__(self):
         self.head = None
 
     def append(self, node):
-        '''handle accept and append the nodes'''
+        '''This method is made to accept nodes and append them to the the linked list'''
         if self.head is None:
             self.head = node
         else:
@@ -21,74 +18,60 @@ class LinkedList:
             while current.next is not None:
                 current = current.next
             current.next = node
-
-    def middleNode(self):
-        '''Given the head of a singly linked list, return the middle node of the linked list.
-        If there are two middle nodes, return the second middle node.
-        Using two pointers—one to run to the end value and the other to catch the middle node
-        when the first node reaches the end value—it iterates over the list.'''
-        pointer = self.head
-        mid_node = self.head
-        while (pointer.next != None):
-            pointer = pointer.next.next
-            mid_node = mid_node.next
-        return mid_node.val
-
+        
+        
+    def deleteNthNode(self,head,n:int):
+        '''A method that takes a head and n integer which refers to the node to be removed and
+        using 2 pointers to iterate through the linked list when the second pointer reaches the end of the list the 
+        first pointer should at the nth node to be removed'''
+        firstPointer = head
+        secondPointer = head
+        firstPointerIndex = 0
+        secondPointerIndex = 0
+        while firstPointer is not None:
+            firstPointer = firstPointer.next
+            firstPointerIndex += 1
+            if firstPointerIndex - secondPointerIndex > n + 1:
+                 secondPointer = secondPointer.next
+                 secondPointerIndex += 1
+        if firstPointerIndex - secondPointerIndex <= n:
+            return head.next
+        secondPointer.next = secondPointer.next.next
+        return head
+    
     def printAll(self):
-        '''This method prints the linked list values contained within a list.'''
-        elements = []
+        '''this is a method to print the linked list values inside of a list'''
+        elements=[]
         if self.head is None:
-            return ("linked list is empty")
+            return("The linked list is empty")
         else:
             current = self.head
             while current is not None:
                 elements.append(current.val)
                 current = current.next
             return elements
-
-
-def deleteNode(node):
-    '''This function deletes nodes that only have access to the node, and it takes into account the fact that the node is not a tail node.'''
-
-    if not node:
-        return
-
-    node.val = node.next.val
-    node.next = node.next.next
-
-def deleteNthNode(self, node):
-        '''Given the head of a linked list, this function removes the nth node from the end of the list and return its head.'''
-        first_pointer = self.head
-        second_pointer = self.head
-        for i in range(node):
-            if second_pointer.next == None:
-                if i == node - 1:
-                    self.head = self.head.next
-                return self.head
-            second_pointer = second_pointer.next
-        while second_pointer.next != None:
-            second_pointer = second_pointer.next
-            first_pointer = first_pointer.next
-        first_pointer.next = first_pointer.next.next
-
+            
+             
 SLL = LinkedList()
-
-node1 = Node(9)
+node1 = Node(4)
 SLL.append(node1)
-node2 = Node(6)
+
+node2 = Node(9)
 SLL.append(node2)
-node3 = Node(2)
+
+node3 = Node(5)
 SLL.append(node3)
-node4 = Node(7)
+
+node4 = Node(1)
 SLL.append(node4)
-node5 = Node(3)
+
+node5 =Node(7)
 SLL.append(node5)
-node6 = Node(1)
+node6 = Node(3)
 SLL.append(node6)
+
 print(SLL.printAll())
 
-deleteNode(node3)
-print(deleteNthNode(SLL, 8))
+#print(SLL.middleNode())
+SLL.deleteNthNode(SLL.head,2)
 print(SLL.printAll())
-
-print(SLL.middleNode())

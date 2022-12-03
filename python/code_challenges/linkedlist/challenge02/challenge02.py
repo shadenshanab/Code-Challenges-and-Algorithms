@@ -35,7 +35,7 @@ class LinkedList:
                 mid_node = mid_node.next
             else:
                 break
-        return mid_node.val
+        return mid_node
 
     def printAll(self):
         '''This method prints the linked list values contained within a list.'''
@@ -58,7 +58,6 @@ def deleteNode(node):
 
     node.val = node.next.val
     node.next = node.next.next
-
 
 SLL = LinkedList()
 
