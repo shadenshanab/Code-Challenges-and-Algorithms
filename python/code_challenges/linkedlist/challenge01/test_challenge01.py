@@ -21,11 +21,11 @@ def test_delete():
 
 
 def test_empty():
-    '''cjeck if the error message works in case there is no nodes in the linked list'''
+    '''check if the error message works in case there is no nodes in the linked list'''
 
     llist = LinkedList()
 
-    expected = "The linked list is empty"
+    expected = "linked list is empty"
     actual = llist.printAll()
 
     assert actual ==expected
