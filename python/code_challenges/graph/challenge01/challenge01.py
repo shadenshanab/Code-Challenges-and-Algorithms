@@ -1,3 +1,9 @@
+''' algorithm:
+To implement the breadth first search, you can use a queue to keep track of the nodes that need to be visited. 
+You can start by adding the start node to the queue, marking it as visited and adding its value to the result array. 
+Then, you can iterate over the queue, taking the first element of the queue and adding its neighbors to the queue. 
+You can mark the neighbors as visited and add their values to the result array before adding them to the queue.'''
+
 class Node:
     def __init__(self, value=None):
         self.value = value
@@ -33,22 +39,23 @@ class Graph:
         edge2 = Edge(node1,weight)
         self.adj_list[node2].append(edge2)
 
+
     def breadth_first_search(self, start):
-        """
-        Traverse the graph using breadth-first search, starting from the given vertex,
-        and return a list of all the visited nodes.
-        """
-        visited = []
         queue = [start]
+        visited = set()
+        result = []
 
         while queue:
-            vertex = queue.pop(0)
-            if vertex not in visited:
-                visited.append(vertex)
-                queue.extend([edge.vertex for edge in self.adj_list[vertex] if edge.vertex not in visited])
-        return visited
+            current = queue.pop(0)
+            visited.add(current)
+            result.append(current.value)
 
+            for edge in self.adj_list[current]:
+                if edge.vertex not in visited:
+                    queue.append(edge.vertex)
+                    visited.add(edge.vertex)
 
+        return result
 
 if __name__ == "__main__":
     gr = Graph()
@@ -79,4 +86,4 @@ if __name__ == "__main__":
     gr.add_edge(f, h)
 
 
-    print(gr.breadth_first_search(c))# Write here the code challenge solution
+    print(gr.breadth_first_search(c))
